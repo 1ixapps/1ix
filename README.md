@@ -2,7 +2,7 @@
 
 رابط و API در یک برنامهٔ Next.js اجرا می‌شوند. دیتابیس PostgreSQL، Auth و Storage روی Supabase هستند.
 
-راهنماهای جدا:
+راهنماهای مجزا:
 - [دیپلوی روی Vercel](DEPLOYMENT.md)
 - [راه‌اندازی و تغییر دیتابیس / انتقال داده](docs/DATABASE_MIGRATION.md)
 - [کوئری آمادهٔ نصب در SQL Editor](supabase/SETUP.sql)
