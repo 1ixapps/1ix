@@ -5,3 +5,5 @@ server/tests
 scripts
 build
 public/index.html
+# Do not seed npm installs from the legacy mirror-backed Yarn lockfile.
+yarn.lock

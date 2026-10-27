@@ -17,7 +17,7 @@
 Node.js نسخهٔ ۲۲ یا ۲۴. دستورها از همین پوشه:
 
 ```powershell
-npm ci
+npm install
 npm run dev
 ```
 

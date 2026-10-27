@@ -34,7 +34,7 @@ git diff --cached --name-only
 روش جایگزین محلی، از ریشهٔ پروژه و با env مقصد تنظیم‌شده:
 
 ```powershell
-npm ci
+npm install
 npm run db:migrate
 ```
 
@@ -65,7 +65,7 @@ schema app_private را به Exposed Schemas اضافه نکنید.
 | Root Directory | نقطه (.)؛ package.json و next.config.mjs در ریشه‌اند |
 | Framework | Next.js |
 | Node.js | 22.x یا 24.x |
-| Install | npm ci |
+| Install | npm install --registry=https://registry.npmjs.org --no-audit --no-fund |
 | Build | npm run build |
 | Output Directory | پیش‌فرض؛ دستی تغییر ندهید |
 
@@ -130,7 +130,7 @@ env موجود را با Copy-Item بازنویسی نکنید. اگر هنوز 
 بعد از تغییر env، سرور توسعه را دوباره راه‌اندازی کنید.
 
 ```powershell
-npm ci
+npm install
 npm run dev
 ```
 
