@@ -9,7 +9,7 @@ jest.mock("react-router-dom", () => ({
   useSearchParams: () => [new URLSearchParams(mockQuery)],
 }), { virtual: true });
 jest.mock("@/contexts/AuthContext", () => ({ useAuth: jest.fn() }));
-jest.mock("@/pages/Login", () => ({
+jest.mock("@/screens/Login", () => ({
   AuthShell: ({ children }) => require("react").createElement("main", null, children),
   AuthSidePanel: () => null,
 }));

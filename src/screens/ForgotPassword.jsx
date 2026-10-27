@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import api, { pickError } from "@/lib/api";
-import { AuthShell, AuthSidePanel } from "@/pages/Login";
+import { AuthShell, AuthSidePanel } from "@/screens/Login";
 
 export default function ForgotPassword() {
     const [email, setEmail] = useState("");

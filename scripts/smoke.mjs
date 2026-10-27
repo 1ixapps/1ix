@@ -43,7 +43,7 @@ try {
     if (path === "/pricing") { assert.match(text, /<title>تعرفه‌های وانیکس/, "Pricing server title"); assert.match(text, /data-testid="pricing-card-pro"/, "Real plans in server HTML"); }
     checks++;
   }
-  for (const path of ["/not-a-real-route", "/dashboard/not-a-feature", "/u/smoke-business"]) {
+  for (const path of ["/not-a-real-route", "/dashboard/not-a-feature", "/u/smoke-business", "/HomeRedesign", "/dashboard/PageBuilder"]) {
     const { response, text } = await get(path); assert.equal(response.status, 404, path + " real HTTP 404"); assert.match(text, /noindex/); checks++;
   }
   const robots = await get("/robots.txt"); assert.equal(robots.response.status, 200); assert.match(robots.text, /Sitemap: https?:\/\/[^\s]+\/sitemap.xml/); checks++;

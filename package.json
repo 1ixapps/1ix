@@ -63,6 +63,7 @@
     "scripts": {
         "start": "next start",
         "build": "next build --webpack",
+        "postbuild": "node scripts/verify-build.mjs",
         "test": "craco test",
         "dev": "next dev --webpack",
         "test:server": "node --test server/tests/*.test.mjs",

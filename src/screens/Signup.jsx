@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
-import { AuthShell, AuthSidePanel } from "@/pages/Login";
+import { AuthShell, AuthSidePanel } from "@/screens/Login";
 import EmailConfirmation from "@/components/EmailConfirmation";
 import GoogleSignIn from "@/components/GoogleSignIn";
 import { pickError } from "@/lib/api";

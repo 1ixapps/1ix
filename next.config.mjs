@@ -1,8 +1,6 @@
 import { fileURLToPath } from "node:url";
 /** @type {import('next').NextConfig} */
 const config = {
-  // Keep existing React screens out of Next's Pages Router during migration.
-  pageExtensions: ["next.js", "next.jsx"],
   poweredByHeader: false,
   outputFileTracingRoot: fileURLToPath(new URL(".", import.meta.url)),
   serverExternalPackages: ["postgres"],

@@ -4,38 +4,38 @@ import { BrowserRouter, StaticRouter, Routes, Route, Navigate, useLocation } fro
 import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { Toaster } from "@/components/ui/sonner";
 
-import Home from "@/pages/HomeRedesign";
-import Pricing from "@/pages/Pricing";
-import Login from "@/pages/Login";
-import Signup from "@/pages/Signup";
-import AuthConfirm from "@/pages/AuthConfirm";
-import ForgotPassword from "@/pages/ForgotPassword";
-import ResetPassword from "@/pages/ResetPassword";
-import PublicPage from "@/pages/PublicPage";
-import ShortRedirect from "@/pages/ShortRedirect";
-import NotFound from "@/pages/NotFound";
+import Home from "@/screens/HomeRedesign";
+import Pricing from "@/screens/Pricing";
+import Login from "@/screens/Login";
+import Signup from "@/screens/Signup";
+import AuthConfirm from "@/screens/AuthConfirm";
+import ForgotPassword from "@/screens/ForgotPassword";
+import ResetPassword from "@/screens/ResetPassword";
+import PublicPage from "@/screens/PublicPage";
+import ShortRedirect from "@/screens/ShortRedirect";
+import NotFound from "@/screens/NotFound";
 
 import DashboardLayout from "@/components/DashboardLayoutPremium";
-import DashOverview from "@/pages/dashboard/OverviewRedesign";
-import DashPageBuilder from "@/pages/dashboard/PageBuilder";
-import DashLinks from "@/pages/dashboard/Links";
-import DashServices from "@/pages/dashboard/Services";
-import DashAppointments from "@/pages/dashboard/Appointments";
-import DashNotifications from "@/pages/dashboard/Notifications";
-import DashSettings from "@/pages/dashboard/Settings";
-import DashPlan from "@/pages/dashboard/Plan";
+import DashOverview from "@/screens/dashboard/OverviewRedesign";
+import DashPageBuilder from "@/screens/dashboard/PageBuilder";
+import DashLinks from "@/screens/dashboard/Links";
+import DashServices from "@/screens/dashboard/Services";
+import DashAppointments from "@/screens/dashboard/Appointments";
+import DashNotifications from "@/screens/dashboard/Notifications";
+import DashSettings from "@/screens/dashboard/Settings";
+import DashPlan from "@/screens/dashboard/Plan";
 import { safeAuthReturn } from "@/lib/plans";
 import SeoHead from "@/components/SeoHead";
 import { absoluteUrl, classifyPath, pageSeo } from "../shared/seo.mjs";
 
 import AdminLayout from "@/components/AdminLayout";
-import AdminOverview from "@/pages/admin/Overview";
-import AdminUsers from "@/pages/admin/Users";
-import AdminPages from "@/pages/admin/Pages";
-import AdminLinks from "@/pages/admin/Links";
-import AdminAppointments from "@/pages/admin/Appointments";
-import AdminTickets from "@/pages/admin/Tickets";
-import AdminAnnouncements from "@/pages/admin/Announcements";
+import AdminOverview from "@/screens/admin/Overview";
+import AdminUsers from "@/screens/admin/Users";
+import AdminPages from "@/screens/admin/Pages";
+import AdminLinks from "@/screens/admin/Links";
+import AdminAppointments from "@/screens/admin/Appointments";
+import AdminTickets from "@/screens/admin/Tickets";
+import AdminAnnouncements from "@/screens/admin/Announcements";
 
 function Protected({ children, adminOnly = false }) {
     const { user, loading, authError, refresh } = useAuth();

@@ -65,7 +65,7 @@ schema app_private را به Exposed Schemas اضافه نکنید.
 | Root Directory | نقطه (.)؛ package.json و next.config.mjs در ریشه‌اند |
 | Framework | Next.js |
 | Node.js | 22.x یا 24.x |
-| Install | npm install --registry=https://registry.npmjs.org --no-audit --no-fund |
+| Install | npm install |
 | Build | npm run build |
 | Output Directory | پیش‌فرض؛ دستی تغییر ندهید |
 
@@ -144,3 +144,11 @@ npm run test:smoke
 ```
 
 تست‌ها از دیتابیس تعبیه‌شده و آداپتورهای کنترل‌شده استفاده می‌کنند؛ smoke به دیتابیس ابری متصل نمی‌شود. برای اجرای نسخهٔ ساخته‌شده: npm start.
+
+## بررسی خروجی بسته‌بندی Vercel
+
+نام فایل‌های مسیریابی Next.js استاندارد شده‌اند و تنظیم pageExtensions سفارشی حذف شده است. صفحات React Router در src/screens هستند؛ آن‌ها را به src/pages برنگردانید، چون مسیرهای اضافی و ناخواسته ایجاد می‌کند. آدرس‌های سایت و API تغییر نکرده‌اند.
+
+Build Command باید npm run build بماند. این دستور پس از کامپایل، scripts/verify-build.mjs را از طریق postbuild اجرا می‌کند و وجود تمام فایل‌های ارجاع‌شده در traceهای Next.js را می‌سنجد. پیام Deployment traces verified و No missing files باید در لاگ دیده شود. فایل بررسی در .vercelignore مستثنا شده و به Vercel ارسال می‌شود.
+
+اگر خطای route_client-reference-manifest.js از خروجی قدیمی باقی مانده، commit تازه را بدون Build Cache دیپلوی کنید. manifest خالی نسازید و فایل‌های .next را به گیت اضافه نکنید.
