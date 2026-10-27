@@ -1,0 +1,43 @@
+.bp-preview-shell { width: 100%; min-width: 0; border: 1px solid #dfe3ea; border-radius: 17px; background: #fff; color: #30394a; overflow: hidden; box-shadow: 0 8px 28px rgb(28 39 65 / 7%); }
+.bp-preview-browserbar { height: 32px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-inline: 12px; background: #fff; border-bottom: 1px solid #e9ecf1; direction: ltr; }
+.bp-preview-browserbar > span { display: flex; gap: 4px; }
+.bp-preview-browserbar i { width: 6px; height: 6px; border-radius: 50%; background: #d5dae3; }
+.bp-preview-browserbar i:first-child { background: #f4a79b; }
+.bp-preview-browserbar i:nth-child(2) { background: #e6cd81; }
+.bp-preview-browserbar i:nth-child(3) { background: #9fd7b8; }
+.bp-preview-browserbar b { color: #6e7785; font-size: 10px; font-weight: 650; direction: rtl; }
+.bp-preview-viewport { max-height: min(65dvh,680px); overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; padding: 0; background: #edf0f5; }
+.bp-preview-viewport:focus-visible { outline: 2px solid #4f46f7; outline-offset: -2px; }
+.bp-preview-host { width: 100%; min-width: 0; }
+.bp-preview-spacer { position: relative; margin-inline: auto; min-height: 1px; }
+.bp-preview-target { position: absolute; top: 0; left: 0; transform-origin: top left; }
+.bp-preview-shell.preview-device--mobile { max-width: 390px; margin-inline: auto; }
+.bp-preview-shell.preview-device--desktop { max-width: none; }
+.bp-preview-shell.is-compact .bp-preview-viewport { max-height: min(57dvh,560px); }
+.studio-preview.pro-preview-panel { display: flex; flex-direction: column; min-width: 0; border: 1px solid #e0e4ec; border-radius: 18px; background: #fff; }
+.studio-preview-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 12px; border-bottom: 1px solid #e9ecf2; }
+.studio-preview-title { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 750; color: #4a5262; }
+.studio-preview-title > svg { color: #6a698e; }
+.studio-preview-title i { width: 5px; height: 5px; border-radius: 50%; background: #2b9b74; }
+.studio-preview-controls { display: flex; align-items: center; gap: 4px; padding: 3px; border: 1px solid #eceef3; border-radius: 12px; background: #f6f7fa; }
+.studio-preview-controls button { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 10px; color: #727b8a; font-size: 11px; font-weight: 700; border-radius: 9px; }
+.studio-preview-controls button[aria-pressed=true] { background: #fff; color: #4f46f7; box-shadow: 0 2px 6px rgb(30 37 65 / 7%); }
+.studio-preview-controls button:hover { background: #eeedf9; color: #4f46f7; }
+.studio-preview-controls button:focus-visible, .studio-preview-expand-hint:focus-visible { outline: 2px solid #4f46f7; outline-offset: 2px; }
+.studio-preview-canvas { padding: 14px; min-width: 0; min-height: 0; background: #f2f4f8; }
+.studio-preview-caption { flex: 0 0 auto; margin: 0 !important; padding: 10px 14px; font-size: 11px !important; line-height: 1.9 !important; color: #727b8a; border-top: 1px solid #e8ebf1; }
+.studio-preview-caption.has-draft { color: #86601f; background: #fffcf5; }
+.studio-preview-expand-hint { min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 8px 12px; color: #5a529a; font-size: 11px; font-weight: 650; border-top: 1px solid #ecebf5; }
+.v3-builder-page .builder-preview { max-height: none; }
+.v3-builder-page .builder-preview .studio-preview { max-height: none; }
+.pro-preview-dialog:has(.studio-preview) { display: flex !important; flex-direction: column; gap: 12px; overflow: hidden !important; max-width: 1180px !important; max-height: calc(100dvh - 24px) !important; padding: 20px !important; }
+.pro-preview-dialog > .studio-preview { flex: 1; min-height: 0; overflow: hidden; }
+.pro-preview-dialog .studio-preview-canvas { overflow: hidden; }
+.pro-preview-dialog .bp-preview-viewport { max-height: calc(100dvh - 265px); }
+@media (max-width: 640px) {
+  .studio-preview-controls button > span { display: none; }
+  .studio-preview-canvas { padding: 8px; }
+  .pro-preview-dialog:has(.studio-preview) { padding: 14px !important; gap: 10px; }
+  .pro-preview-dialog .bp-preview-viewport { max-height: calc(100dvh - 270px); }
+}
+@media (prefers-reduced-motion: reduce) { .studio-preview *, .bp-preview-shell * { scroll-behavior: auto !important; } }

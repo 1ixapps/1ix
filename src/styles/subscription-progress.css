@@ -1,0 +1,12 @@
+.subscription-progress { min-inline-size: 0; margin-block-start: 16px; color: #4b5567; }
+.subscription-progress-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-block-end: 6px; font-size: 11px; font-weight: 600; }
+.subscription-trial-label { border-radius: 6px; padding: 2px 6px; background: #e9e6ff; color: #5145ae; font-size: 10px; }
+.subscription-days { display: block; font-size: 14px; font-weight: 800; line-height: 1.8; }
+.subscription-progress-track { block-size: 7px; margin-block: 10px; overflow: hidden; border-radius: 99px; background: #dfe3ed; }
+.subscription-progress-fill { display: block; inline-size: 100%; block-size: 100%; border-radius: inherit; background: #4f46f7; transform-origin: right center; }
+[dir=ltr] .subscription-progress-fill { transform-origin: left center; }
+.subscription-progress-note, .subscription-free-note { margin: 0; color: #626c7d; font-size: 11px; line-height: 1.95; overflow-wrap: anywhere; }
+.subscription-free-note { margin-block-start: 10px; }
+.subscription-progress[data-state=ending] .subscription-progress-fill { background: #ad7418; }
+.subscription-progress[data-state=expired] .subscription-days { color: #8f5730; }
+.subscription-progress[data-state=unknown] .subscription-days { font-size: 12px; font-weight: 650; color: #626c7d; }

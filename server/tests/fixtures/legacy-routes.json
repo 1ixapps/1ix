@@ -1,0 +1,238 @@
+[
+    {
+        "method":  "GET",
+        "path":  "/api/admin/stats"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/admin/users"
+    },
+    {
+        "method":  "PATCH",
+        "path":  "/api/admin/users/{user_id}"
+    },
+    {
+        "method":  "DELETE",
+        "path":  "/api/admin/users/{user_id}"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/admin/pages"
+    },
+    {
+        "method":  "PATCH",
+        "path":  "/api/admin/pages/{page_id}"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/admin/links"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/admin/appointments"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/admin/tickets"
+    },
+    {
+        "method":  "PATCH",
+        "path":  "/api/admin/tickets/{ticket_id}"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/admin/announcements"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/admin/announcements"
+    },
+    {
+        "method":  "DELETE",
+        "path":  "/api/admin/announcements/{ann_id}"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/appointments"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/appointments"
+    },
+    {
+        "method":  "PATCH",
+        "path":  "/api/appointments/{appt_id}"
+    },
+    {
+        "method":  "DELETE",
+        "path":  "/api/appointments/{appt_id}"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/appointments/slots/{username}"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/appointments/available-slots/{username}"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/appointments/customers"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/appointments/calendar"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/auth/register"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/auth/login"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/auth/logout"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/auth/me"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/auth/refresh"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/auth/forgot-password"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/auth/reset-password"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/auth/phone/request-otp"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/auth/phone/verify-otp"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/links"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/links"
+    },
+    {
+        "method":  "PATCH",
+        "path":  "/api/links/{link_id}"
+    },
+    {
+        "method":  "DELETE",
+        "path":  "/api/links/{link_id}"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/links/{link_id}/stats"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/r/{slug}"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/links/resolve/{slug}"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/notifications"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/notifications"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/notifications/{notif_id}/read"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/notifications/read-all"
+    },
+    {
+        "method":  "DELETE",
+        "path":  "/api/notifications/{notif_id}"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/pages/me"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/pages"
+    },
+    {
+        "method":  "PATCH",
+        "path":  "/api/pages/me"
+    },
+    {
+        "method":  "DELETE",
+        "path":  "/api/pages/me"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/pages/check-username/{username}"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/public/page/{username}"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/public/page/{username}/book"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/public/support"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/public/plans"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/services"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/services"
+    },
+    {
+        "method":  "PATCH",
+        "path":  "/api/services/{service_id}"
+    },
+    {
+        "method":  "DELETE",
+        "path":  "/api/services/{service_id}"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/stats/overview"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/admin/stats/timeseries"
+    },
+    {
+        "method":  "POST",
+        "path":  "/api/uploads"
+    },
+    {
+        "method":  "GET",
+        "path":  "/api/uploads/{filename}"
+    }
+]

@@ -1,0 +1,70 @@
+/* Weekly schedule editor: size to the editor column, not the viewport. */
+.working-hours-editor {
+  --wh-ink: #252b37;
+  --wh-muted: #667085;
+  --wh-line: #e7eaf0;
+  --wh-open: #23714a;
+  container: working-hours / inline-size;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--wh-line);
+  border-radius: 18px;
+  background: #fff;
+}
+.wh-editor-heading { display: flex; align-items: center; gap: 12px; margin-block-end: 20px; }
+.wh-heading-icon { display: grid; flex: 0 0 42px; place-items: center; height: 42px; border-radius: 12px; background: #eeedff; color: #4f46f7; }
+.wh-editor-heading h3 { margin: 0; color: var(--wh-ink); font-size: 16px; font-weight: 800; }
+.wh-editor-heading p { margin: 4px 0 0; color: var(--wh-muted); font-size: 12px; line-height: 1.9; }
+.wh-days { display: grid; gap: 10px; }
+.wh-day { min-width: 0; padding: 14px; border: 1px solid var(--wh-line); border-radius: 13px; background: #fff; }
+.wh-day.is-enabled { border-inline-start: 3px solid #b5d8c7; }
+.wh-day.is-closed { background: #f8f9fb; }
+.wh-day-heading, .wh-day-name { display: flex; align-items: center; gap: 9px; }
+.wh-day-heading { justify-content: space-between; gap: 12px; }
+.wh-day-name { color: var(--wh-ink); min-width: 0; }
+.wh-day-name strong { font-size: 14px; font-weight: 750; overflow-wrap: anywhere; }
+.wh-day-marker { display: grid; flex: 0 0 30px; place-items: center; height: 30px; border-radius: 9px; background: #eaf6ef; color: var(--wh-open); }
+.is-closed .wh-day-marker { color: #7c8494; background: #eef0f5; }
+.wh-day-toggle { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 9px; min-height: 44px; padding-inline-start: 6px; color: var(--wh-open); cursor: pointer; font-size: 12px; font-weight: 600; }
+.is-closed .wh-day-toggle { color: var(--wh-muted); }
+.wh-time-fields { display: grid; grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1fr); align-items: end; gap: 8px; margin-block-start: 10px; }
+.wh-time-field { min-width: 0; }
+.wh-time-field > label { display: block; margin-block-end: 6px; color: #667085; font-size: 12px; }
+.wh-range-divider { align-self: end; padding-block-end: 13px; color: #8991a1; font-size: 12px; text-align: center; }
+.v3-builder-page .wh-time-field input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 46px;
+  padding: 8px 10px;
+  text-align: center;
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+  background: #fafbfe !important;
+  border-radius: 10px !important;
+}
+.wh-time-field input::-webkit-date-and-time-value { text-align: center; }
+.wh-time-field input::-webkit-calendar-picker-indicator { margin: 0; padding-inline-start: 4px; cursor: pointer; }
+.wh-time-error { display: flex; align-items: flex-start; gap: 5px; margin-block-start: 10px; color: #a34245; font-size: 12px; line-height: 1.9; }
+.wh-time-error svg { flex-shrink: 0; margin-top: 4px; }
+.wh-empty { display: grid; justify-items: center; gap: 14px; padding: 28px 12px; border: 1px dashed #d9dce6; border-radius: 12px; color: #757e90; text-align: center; }
+.wh-empty p { margin: 0; font-size: 13px; }
+.wh-empty button { gap: 6px; }
+@container working-hours (min-width: 600px) {
+  .wh-day.is-enabled { display: grid; grid-template-columns: minmax(210px, 1fr) minmax(240px, 1fr); align-items: center; gap: 10px 20px; }
+  .wh-time-fields { margin-block-start: 0; }
+  .wh-time-error { grid-column: 1 / -1; margin-block-start: 0; }
+}
+@media (max-width: 480px) {
+  .working-hours-editor { padding: 14px; }
+  .wh-day { padding: 11px; }
+  .wh-time-fields { grid-template-columns: minmax(0, 1fr) 12px minmax(0, 1fr); gap: 6px; }
+  .v3-builder-page .wh-time-field input { padding-inline: 4px; }
+}
+
+@container working-hours (max-width: 310px) {
+  .wh-time-fields { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .wh-range-divider { display: none; }
+}

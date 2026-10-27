@@ -1,0 +1,36 @@
+.account-plan { --plan-ink: #252a36; --plan-muted: #687183; --plan-line: #e5e8ef; display: grid; gap: 24px; max-width: 1120px; }
+.account-plan-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.account-plan-eyebrow { display: flex; align-items: center; gap: 6px; color: #5545c7; font-size: 12px; font-weight: 700; }
+.account-plan-heading h1 { margin: 8px 0; color: var(--plan-ink); font-size: clamp(24px, 3vw, 30px); font-weight: 850; }
+.account-plan-heading p, .account-plan-tools-heading p { margin: 0; color: var(--plan-muted); font-size: 13px; line-height: 1.9; }
+.account-plan-heading button { gap: 7px; min-height: 44px; }
+.account-plan-status { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding: 24px; border: 1px solid var(--plan-line); border-radius: 20px; background: #fff; }
+.account-plan-status.is-pro { border-color: #d5d0ff; background: #f5f4ff; }
+.account-plan-symbol { display: grid; place-items: center; flex: 0 0 60px; height: 60px; border-radius: 18px; background: #eeebff; color: #4f46f7; }
+.account-plan-status-copy { flex: 1 1 180px; min-width: 0; }
+.account-plan-status-copy > span { color: var(--plan-muted); font-size: 12px; }
+.account-plan-status h2 { margin: 4px 0; color: var(--plan-ink); font-size: 24px; font-weight: 850; line-height: 1.7; }
+.account-plan-status p, .account-plan-status small { margin: 0; color: #62697c; font-size: 12px; line-height: 1.9; }
+.account-plan-active { display: inline-flex; align-items: center; gap: 6px; padding: 7px 11px; border-radius: 99px; background: #e3f4ea; color: #246747; font-size: 12px; font-weight: 700; }
+.account-plan-tools-heading h2 { margin: 0 0 5px; color: var(--plan-ink); font-size: 18px; font-weight: 800; }
+.account-plan-tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.account-plan-tool { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 22px; border: 1px solid var(--plan-line); border-radius: 17px; background: #fff; }
+.account-plan-tool-icon { display: grid; place-items: center; width: 44px; height: 44px; margin-block-end: 16px; border-radius: 12px; background: #eeebff; color: #5742b7; }
+.account-plan-tool-icon.is-mint { background: #dff6eb; color: #216847; }
+.account-plan-tool-icon.is-amber { background: #fff2cc; color: #855e14; }
+.account-plan-tool-icon.is-rose { background: #ffe9e8; color: #a34450; }
+.account-plan-tool-icon.is-sky { background: #e7f2ff; color: #206198; }
+.account-plan-tool h3 { margin: 0; color: var(--plan-ink); font-size: 15px; font-weight: 750; line-height: 1.8; }
+.account-plan-tool p { margin: 8px 0 12px; color: var(--plan-muted); font-size: 12px; line-height: 2; }
+.account-plan-tool > a { display: flex; align-items: center; justify-content: space-between; align-self: stretch; gap: 10px; min-height: 44px; margin-block-start: auto; border-top: 1px solid #eff1f6; color: #5042c4; font-size: 12px; font-weight: 750; }
+.account-plan-tool > a:hover { color: #302689; }
+.account-plan-error { display: flex; align-items: flex-start; gap: 8px; padding: 14px 18px; border: 1px solid #f0d3b1; border-radius: 12px; background: #fff9ed; color: #835b24; font-size: 13px; line-height: 1.9; }
+.account-plan-error svg { flex-shrink: 0; margin-top: 4px; }
+.account-plan-selection, .account-plan-support { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; padding: 20px; border: 1px solid var(--plan-line); border-radius: 16px; background: #fff; }
+.account-plan-selection > div, .account-plan-support > div { flex: 1 1 250px; }
+.account-plan-selection strong, .account-plan-support strong { color: var(--plan-ink); font-size: 14px; }
+.account-plan-selection p, .account-plan-support p { margin: 6px 0 0; color: var(--plan-muted); font-size: 12px; line-height: 1.9; }
+.account-plan-support > a:last-child { display: inline-flex; align-items: center; min-height: 44px; color: #5f6573; font-size: 12px; }
+.account-plan a:focus-visible { outline: 3px solid #4f46f7; outline-offset: 4px; border-radius: 6px; }
+@media (max-width: 1100px) { .account-plan-tools { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .account-plan-tools { grid-template-columns: minmax(0, 1fr); } .account-plan-status { padding: 18px; gap: 14px; } .account-plan-active { margin-inline-start: auto; } .account-plan-tool { padding: 20px; } }

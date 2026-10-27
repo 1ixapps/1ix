@@ -1,0 +1,6 @@
+.account-avatar { position: relative; display: inline-grid; flex: 0 0 auto; place-items: stretch; inline-size: 40px; block-size: 40px; padding: 3px; overflow: hidden; isolation: isolate; border-radius: 13px; background: #edeafc; color: #5143b0; font-size: 16px; font-weight: 800; }
+.account-avatar-face { position: relative; z-index: 1; display: grid; place-items: center; min-inline-size: 0; min-block-size: 0; border-radius: 10px; background: #f3f0ff; line-height: 1; }
+.account-avatar.is-pro { background: transparent; }
+.account-avatar.is-pro::before { content: ""; position: absolute; inset: -50%; background: conic-gradient(#4f46f7, #4b9df4, #69d4ac, #ffda62, #ff8677, #b06ee6, #4f46f7); animation: account-spectrum 10s linear infinite; }
+@keyframes account-spectrum { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .account-avatar.is-pro::before { animation: none; } }

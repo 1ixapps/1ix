@@ -1,0 +1,211 @@
+// Page templates for quick start. When a user picks a template, the create page form
+// pre-populates the new page with sensible defaults (bio, actions, working hours, services).
+
+const WD_FULL = [
+    { day: "saturday", enabled: true, open_time: "09:00", close_time: "18:00" },
+    { day: "sunday", enabled: true, open_time: "09:00", close_time: "18:00" },
+    { day: "monday", enabled: true, open_time: "09:00", close_time: "18:00" },
+    { day: "tuesday", enabled: true, open_time: "09:00", close_time: "18:00" },
+    { day: "wednesday", enabled: true, open_time: "09:00", close_time: "18:00" },
+    { day: "thursday", enabled: true, open_time: "09:00", close_time: "14:00" },
+    { day: "friday", enabled: false, open_time: "09:00", close_time: "13:00" },
+];
+
+const WD_SALON = [
+    { day: "saturday", enabled: true, open_time: "10:00", close_time: "21:00" },
+    { day: "sunday", enabled: true, open_time: "10:00", close_time: "21:00" },
+    { day: "monday", enabled: true, open_time: "10:00", close_time: "21:00" },
+    { day: "tuesday", enabled: true, open_time: "10:00", close_time: "21:00" },
+    { day: "wednesday", enabled: true, open_time: "10:00", close_time: "21:00" },
+    { day: "thursday", enabled: true, open_time: "10:00", close_time: "21:00" },
+    { day: "friday", enabled: false, open_time: "10:00", close_time: "18:00" },
+];
+
+const WD_FREELANCE = [
+    { day: "saturday", enabled: true, open_time: "10:00", close_time: "20:00" },
+    { day: "sunday", enabled: true, open_time: "10:00", close_time: "20:00" },
+    { day: "monday", enabled: true, open_time: "10:00", close_time: "20:00" },
+    { day: "tuesday", enabled: true, open_time: "10:00", close_time: "20:00" },
+    { day: "wednesday", enabled: true, open_time: "10:00", close_time: "20:00" },
+    { day: "thursday", enabled: false, open_time: "10:00", close_time: "20:00" },
+    { day: "friday", enabled: false, open_time: "10:00", close_time: "20:00" },
+];
+
+export const TEMPLATES = [
+    {
+        id: "blank",
+        title: "خالی",
+        emoji: "✨",
+        description: "از صفر شروع کنید",
+        category: "",
+        bio: "",
+        actions: [],
+        working_hours: [],
+        services: [],
+        booking: { slot_minutes: 30, buffer_minutes: 0, lead_time_hours: 2, advance_days: 30, enabled: true },
+        theme: { primary_color: "#4f46e5", accent_color: "#f59e0b", button_style: "rounded" },
+    },
+    {
+        id: "doctor",
+        title: "پزشک / مطب",
+        emoji: "🩺",
+        description: "ویزیت، مشاوره، کلینیک شخصی",
+        category: "پزشک",
+        bio: "پزشک عمومی و متخصص با چندین سال سابقه ارائه خدمات درمانی. برای رزرو نوبت با ما در ارتباط باشید.",
+        actions: [
+            { type: "call", label: "تماس با مطب", value: "" },
+            { type: "whatsapp", label: "ارسال پیام در واتساپ", value: "" },
+            { type: "location", label: "مشاهده آدرس روی نقشه", value: "" },
+            { type: "instagram", label: "صفحه اینستاگرام", value: "" },
+        ],
+        working_hours: WD_FULL,
+        services: [
+            { title: "ویزیت عمومی", duration_minutes: 20, price: 300000 },
+            { title: "ویزیت تخصصی", duration_minutes: 30, price: 500000 },
+        ],
+        booking: { slot_minutes: 20, buffer_minutes: 5, lead_time_hours: 4, advance_days: 30, enabled: true, confirmation_message: "نوبت شما ثبت شد. در صورت نیاز برای تأیید با شما تماس می‌گیریم." },
+        theme: { primary_color: "#0ea5e9", accent_color: "#f59e0b", button_style: "rounded" },
+    },
+    {
+        id: "psychologist",
+        title: "روانشناس / مشاور",
+        emoji: "🧠",
+        description: "جلسات مشاوره حضوری و آنلاین",
+        category: "روانشناس / مشاور",
+        bio: "روانشناس بالینی و مشاور خانواده. فضایی امن و حرفه‌ای برای گفت‌وگو و راه‌حل‌های واقع‌بینانه.",
+        actions: [
+            { type: "call", label: "تماس برای رزرو", value: "" },
+            { type: "whatsapp", label: "ارتباط در واتساپ", value: "" },
+            { type: "instagram", label: "اینستاگرام", value: "" },
+            { type: "telegram", label: "کانال تلگرام", value: "" },
+        ],
+        working_hours: WD_FULL,
+        services: [
+            { title: "جلسه مشاوره فردی", duration_minutes: 60, price: 800000 },
+            { title: "جلسه زوج‌درمانی", duration_minutes: 90, price: 1200000 },
+            { title: "جلسه آنلاین", duration_minutes: 60, price: 700000 },
+        ],
+        booking: { slot_minutes: 60, buffer_minutes: 15, lead_time_hours: 6, advance_days: 30, enabled: true, confirmation_message: "جلسه شما رزرو شد. لطفاً پیش از جلسه فرم اولیه را تکمیل کنید." },
+        theme: { primary_color: "#7c3aed", accent_color: "#f59e0b", button_style: "rounded" },
+    },
+    {
+        id: "salon",
+        title: "آرایشگاه / سالن زیبایی",
+        emoji: "💇",
+        description: "خدمات مو، ناخن و زیبایی",
+        category: "آرایشگاه / سالن زیبایی",
+        bio: "سالن زیبایی با تجهیزات مدرن و تیم حرفه‌ای. خدمات ویژه برای مناسبت‌ها.",
+        actions: [
+            { type: "call", label: "تماس و رزرو", value: "" },
+            { type: "whatsapp", label: "واتساپ", value: "" },
+            { type: "instagram", label: "نمونه‌کارها در اینستاگرام", value: "" },
+            { type: "location", label: "آدرس سالن", value: "" },
+        ],
+        working_hours: WD_SALON,
+        services: [
+            { title: "کوتاهی مو", duration_minutes: 45, price: 250000 },
+            { title: "رنگ مو", duration_minutes: 120, price: 800000 },
+            { title: "میکاپ", duration_minutes: 90, price: 1500000 },
+            { title: "مانیکور و پدیکور", duration_minutes: 60, price: 400000 },
+        ],
+        booking: { slot_minutes: 30, buffer_minutes: 10, lead_time_hours: 2, advance_days: 21, enabled: true },
+        theme: { primary_color: "#ec4899", accent_color: "#f59e0b", button_style: "pill" },
+    },
+    {
+        id: "clinic",
+        title: "کلینیک / مرکز درمانی",
+        emoji: "🏥",
+        description: "چند پزشک، خدمات تخصصی",
+        category: "کلینیک / مرکز درمانی",
+        bio: "کلینیک تخصصی با تیمی از پزشکان مجرب. ارائه خدمات درمانی با کیفیت در محیطی آرام و حرفه‌ای.",
+        actions: [
+            { type: "call", label: "نوبت‌دهی تلفنی", value: "" },
+            { type: "whatsapp", label: "واتساپ پذیرش", value: "" },
+            { type: "location", label: "نقشه و آدرس", value: "" },
+            { type: "website", label: "وب‌سایت کلینیک", value: "" },
+        ],
+        working_hours: WD_FULL,
+        services: [
+            { title: "ویزیت اولیه", duration_minutes: 30, price: 400000 },
+            { title: "ویزیت پیگیری", duration_minutes: 20, price: 300000 },
+        ],
+        booking: { slot_minutes: 30, buffer_minutes: 5, lead_time_hours: 3, advance_days: 30, enabled: true },
+        theme: { primary_color: "#0d9488", accent_color: "#f59e0b", button_style: "rounded" },
+    },
+    {
+        id: "freelancer",
+        title: "فریلنسر / مشاور",
+        emoji: "💼",
+        description: "خدمات تخصصی و مشاوره پروژه",
+        category: "فریلنسر",
+        bio: "مشاور و متخصص با تجربه در طراحی، توسعه و راه‌اندازی پروژه‌ها. اولین جلسه مشاوره رایگان است.",
+        actions: [
+            { type: "call", label: "تماس مستقیم", value: "" },
+            { type: "whatsapp", label: "واتساپ کاری", value: "" },
+            { type: "email", label: "ارسال ایمیل", value: "" },
+            { type: "telegram", label: "تلگرام", value: "" },
+            { type: "website", label: "نمونه‌کارها", value: "" },
+        ],
+        working_hours: WD_FREELANCE,
+        services: [
+            { title: "مشاوره اولیه (رایگان)", duration_minutes: 30, price: 0 },
+            { title: "جلسه مشاوره تخصصی", duration_minutes: 60, price: 500000 },
+        ],
+        booking: { slot_minutes: 30, buffer_minutes: 15, lead_time_hours: 12, advance_days: 14, enabled: true },
+        theme: { primary_color: "#4f46e5", accent_color: "#f59e0b", button_style: "rounded" },
+    },
+    {
+        id: "restaurant",
+        title: "رستوران / کافه",
+        emoji: "☕",
+        description: "منو، رزرو میز و سفارش",
+        category: "رستوران / کافه",
+        bio: "دنج، خوشمزه و به‌یادماندنی. ما را در شبکه‌های اجتماعی دنبال کنید.",
+        actions: [
+            { type: "call", label: "تماس برای رزرو", value: "" },
+            { type: "instagram", label: "اینستاگرام رستوران", value: "" },
+            { type: "location", label: "آدرس و نقشه", value: "" },
+            { type: "website", label: "مشاهده منو", value: "" },
+        ],
+        working_hours: [
+            { day: "saturday", enabled: true, open_time: "12:00", close_time: "23:00" },
+            { day: "sunday", enabled: true, open_time: "12:00", close_time: "23:00" },
+            { day: "monday", enabled: true, open_time: "12:00", close_time: "23:00" },
+            { day: "tuesday", enabled: true, open_time: "12:00", close_time: "23:00" },
+            { day: "wednesday", enabled: true, open_time: "12:00", close_time: "23:00" },
+            { day: "thursday", enabled: true, open_time: "12:00", close_time: "00:00" },
+            { day: "friday", enabled: true, open_time: "12:00", close_time: "00:00" },
+        ],
+        services: [
+            { title: "رزرو میز ۲ نفره", duration_minutes: 90, price: 0 },
+            { title: "رزرو میز ۴ نفره", duration_minutes: 120, price: 0 },
+        ],
+        booking: { slot_minutes: 30, buffer_minutes: 0, lead_time_hours: 2, advance_days: 14, enabled: true },
+        theme: { primary_color: "#dc2626", accent_color: "#f59e0b", button_style: "pill" },
+    },
+    {
+        id: "academy",
+        title: "آموزشگاه / کلاس",
+        emoji: "📚",
+        description: "دوره‌ها، ثبت‌نام و کلاس‌های آنلاین",
+        category: "آموزشگاه",
+        bio: "آموزشگاه با کادر مجرب. دوره‌های حضوری و آنلاین در سطوح مختلف.",
+        actions: [
+            { type: "call", label: "تماس برای ثبت‌نام", value: "" },
+            { type: "whatsapp", label: "واتساپ", value: "" },
+            { type: "telegram", label: "کانال تلگرام", value: "" },
+            { type: "instagram", label: "اینستاگرام", value: "" },
+        ],
+        working_hours: WD_FULL,
+        services: [
+            { title: "جلسه مشاوره", duration_minutes: 30, price: 0 },
+            { title: "جلسه خصوصی", duration_minutes: 60, price: 600000 },
+        ],
+        booking: { slot_minutes: 30, buffer_minutes: 5, lead_time_hours: 4, advance_days: 30, enabled: true },
+        theme: { primary_color: "#0891b2", accent_color: "#f59e0b", button_style: "rounded" },
+    },
+];
+
+export function getTemplate(id) {
+    return TEMPLATES.find((t) => t.id === id);
+}

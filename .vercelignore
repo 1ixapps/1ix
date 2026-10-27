@@ -1,0 +1,7 @@
+.env
+.env.*
+!.env.example
+server/tests
+scripts
+build
+public/index.html

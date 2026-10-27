@@ -1,0 +1,15 @@
+.auth-error{color:#a52032;background:#fff4f5;border:1px solid #f3c6cf;border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.9;overflow-wrap:anywhere}
+.auth-field-error{display:block;color:#a52032;font-size:12px;line-height:1.8;margin-block-start:6px}
+.auth-confirmation{display:grid;gap:18px;min-width:0}
+.auth-confirmation h1{font-size:26px;font-weight:800;line-height:1.6;margin:0;color:var(--ink-900)}
+.auth-confirmation p{font-size:14px;line-height:2;color:var(--ink-500);margin:0;overflow-wrap:anywhere}
+.auth-confirmation .auth-error{color:#a52032}
+.auth-confirmation-icon{width:60px;height:60px;border-radius:18px;display:grid;place-items:center;background:var(--brand-50,#eef0ff);color:var(--brand-700,#4338ca)}
+.auth-step{font-size:12px;font-weight:650;color:var(--brand-700,#4338ca)}
+.auth-email{font-weight:650;color:var(--ink-900);overflow-wrap:anywhere}
+.auth-confirmation .auth-note{font-size:12px;line-height:1.9}
+.auth-confirmation-links{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--brand-700,#4338ca)}
+.auth-confirmation-links button,.auth-confirmation-links a{min-height:44px;display:inline-flex;align-items:center;text-underline-offset:4px}
+.auth-confirmation-links button:hover,.auth-confirmation-links a:hover{text-decoration:underline}
+.auth-confirmation-links :focus-visible{outline:2px solid var(--brand-600,#4f46e5);outline-offset:4px;border-radius:4px}
+.auth-resend{min-height:44px;gap:8px;white-space:normal;height:auto;padding-block:12px}

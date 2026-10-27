@@ -1,0 +1,28 @@
+.bp-public-route { min-width: 0; background: #f8f9fb; }
+.bp-booking-dialog { display: flex !important; flex-direction: column; width: calc(100% - 24px) !important; max-width: 960px !important; max-height: calc(100dvh - 24px) !important; gap: 0 !important; padding: 0 !important; overflow: hidden !important; border: 1px solid #e2e5ec; border-radius: 22px; background: #fff; }
+.bp-booking-dialog > form { min-width: 0; width: 100%; min-height: 0; max-height: calc(100dvh - 24px) !important; }
+.bp-booking-dialog > button { z-index: 2; color: var(--booking-on-primary); background: rgb(255 255 255 / 15%); }
+.bp-booking-dialog .bp-booking-header { flex-shrink: 0; }
+.bp-booking-header h2, .bp-booking-header .bp-booking-description { color: inherit; }
+.bp-booking-header .bp-booking-description { opacity: .85; max-width: 65ch; line-height: 1.9; font-size: 12px; }
+.bp-booking-header .bp-booking-step { color: var(--booking-on-primary); border-color: currentColor; }
+.bp-booking-header .bp-booking-step.is-done { color: #252c39; background: #fff; border-color: #fff; }
+.bp-booking-dialog [data-testid^="public-book-service"] { min-width: 0; border-radius: 14px; box-shadow: none; text-wrap: wrap; }
+.bp-booking-dialog [data-testid^="public-book-service"][aria-pressed=true] { background: #f5f6fb; border-color: var(--booking-primary); box-shadow: inset 0 0 0 1px var(--booking-primary); }
+.bp-booking-dialog [data-testid^="public-book-service"]:focus-visible { outline: 2px solid var(--booking-primary); outline-offset: 3px; }
+.bp-booking-dialog [data-testid="public-book-submit"] { background: var(--booking-primary) !important; color: var(--booking-on-primary) !important; box-shadow: none !important; min-height: 48px; height: auto; white-space: normal; }
+.bp-booking-dialog label { font-size: 12px; }
+.bp-booking-dialog input { min-height: 48px; font-size: 16px; }
+.bp-booking-dialog input:focus-visible, .bp-booking-dialog textarea:focus-visible { border-color: var(--booking-primary); outline: none; box-shadow: 0 0 0 3px #cbd1df60; }
+.bp-booking-dialog [data-testid="public-slot-picker"] { grid-template-columns: repeat(auto-fit,minmax(68px,1fr)); }
+.bp-booking-dialog [data-testid^="slot-"] { min-width: 0; min-height: 44px; padding-inline: 8px; font-size: 13px; }
+.bp-booking-dialog .rmdp-container { display: block !important; width: 100%; }
+.bp-booking-dialog .rmdp-wrapper { max-width: calc(100vw - 64px); }
+.bp-booking-summary > div { min-width: 0; }
+.bp-booking-summary span { overflow-wrap: anywhere; min-width: 0; }
+@media (max-width: 640px) {
+  .bp-booking-dialog { width: calc(100% - 16px) !important; max-height: calc(100dvh - 16px) !important; border-radius: 18px; }
+  .bp-booking-header { padding: 18px !important; }
+  .bp-booking-header h2 { font-size: 20px; line-height: 1.8; }
+  .bp-booking-header .bp-booking-description { font-size: 11px; }
+}

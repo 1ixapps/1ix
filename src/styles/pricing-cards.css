@@ -1,0 +1,134 @@
+.oneix-plan-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  min-inline-size: 0;
+  align-items: stretch;
+}
+.oneix-plan-grid--pricing {
+  inline-size: min(100%, 68rem);
+  margin-inline: auto;
+}
+.oneix-plan-card {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  padding: 1.35rem;
+  border: 1px solid var(--ui-line, #e8e8ee);
+  border-radius: 1.15rem;
+  background: #fff;
+  color: var(--ui-ink, #17181b);
+  box-shadow: 0 4px 16px rgb(23 24 27 / 3%);
+  overflow-wrap: anywhere;
+}
+.oneix-plan-card.is-popular {
+  border-color: var(--ui-primary, #4f46f7);
+  background: #f5f4ff;
+  box-shadow: inset 0 3px 0 var(--ui-primary, #4f46f7);
+}
+.oneix-plan-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+}
+.oneix-plan-heading h3 {
+  min-inline-size: 0;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.8;
+}
+.oneix-plan-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .3rem .5rem;
+  border-radius: .5rem;
+  background: #e8e6ff;
+  color: #4238bc;
+  font-size: .7rem;
+  font-weight: 750;
+}
+.oneix-plan-description {
+  margin: .45rem 0 0;
+  color: #626777;
+  font-size: .8rem;
+  line-height: 1.9;
+}
+.oneix-plan-price {
+  display: grid;
+  gap: .2rem;
+  min-inline-size: 0;
+  margin-block: 1rem;
+}
+.oneix-plan-price strong {
+  display: block;
+  max-inline-size: 100%;
+  font-size: clamp(1.7rem, 2.8vw, 2.25rem);
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.oneix-plan-price > span,
+.oneix-plan-price small {
+  color: #626777;
+  font-size: .75rem;
+  line-height: 1.8;
+}
+.oneix-plan-price small { color: #18754e; }
+.oneix-plan-features {
+  display: grid;
+  align-content: start;
+  gap: .55rem;
+  flex: 1;
+  margin: 0 0 1.25rem;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--ui-line, #e8e8ee);
+  list-style: none;
+}
+.oneix-plan-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  min-inline-size: 0;
+  color: #4c5262;
+  font-size: .8rem;
+  line-height: 1.85;
+}
+.oneix-plan-features li svg {
+  flex: 0 0 auto;
+  margin-block-start: .3rem;
+  color: var(--ui-primary, #4f46f7);
+}
+.oneix-plan-features li span { min-inline-size: 0; }
+.oneix-plan-card .oneix-plan-cta {
+  inline-size: 100%;
+  min-inline-size: 0;
+  block-size: auto;
+  min-block-size: 2.75rem;
+  padding: .65rem .75rem;
+  white-space: normal;
+  line-height: 1.8;
+  box-shadow: none;
+}
+.oneix-plan-cta > span { min-inline-size: 0; }
+.oneix-plan-cta > svg { flex: 0 0 auto; }
+.oneix-plan-card .oneix-plan-cta:hover { transform: none; }
+.oneix-plan-card.is-compact { padding: 1.25rem; }
+@media (min-width: 960px) {
+  .oneix-plan-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Keep comparison cells and the billing control inside narrow viewports too. */
+.oneix-plan-comparison {
+  grid-template-columns: minmax(0, 1.45fr) repeat(3, minmax(0, 1fr));
+}
+.oneix-plan-comparison > div { min-inline-size: 0; overflow-wrap: anywhere; }
+@media (max-width: 640px) {
+  .oneix-plan-comparison > div { padding: .75rem .45rem; font-size: .72rem; line-height: 1.9; }
+  .v3-pricing .oneix-billing-control { max-inline-size: 100%; flex-wrap: wrap; justify-content: center; gap: .4rem; border-radius: 1rem; }
+}
