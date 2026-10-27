@@ -12,4 +12,16 @@
 .auth-confirmation-links button,.auth-confirmation-links a{min-height:44px;display:inline-flex;align-items:center;text-underline-offset:4px}
 .auth-confirmation-links button:hover,.auth-confirmation-links a:hover{text-decoration:underline}
 .auth-confirmation-links :focus-visible{outline:2px solid var(--brand-600,#4f46e5);outline-offset:4px;border-radius:4px}
+.auth-google{display:grid;gap:14px;margin-block:22px}
+.auth-google-button{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:50px;padding:12px 18px;border:1px solid #c7c7d0;border-radius:12px;background:#fff;color:#24262b;font-family:inherit;font-size:14px;font-weight:600;line-height:1.8;cursor:pointer;transition:background-color 160ms ease,border-color 160ms ease}
+.auth-google-button:hover:not(:disabled){background:#f7f7fc;border-color:#8c8c9d}
+.auth-google-button:focus-visible{outline:3px solid var(--brand-600,#4f46e5);outline-offset:3px}
+.auth-google-button:disabled{opacity:.6;cursor:wait}
+.auth-google-button img,.auth-google-button svg{flex-shrink:0}
+.auth-google .auth-error{margin:0}
+.auth-google-spinner{animation:auth-google-spin .8s linear infinite}
+.auth-method-divider{display:flex;align-items:center;gap:12px;color:#6c6d79;font-size:12px;line-height:1.8}
+.auth-method-divider::before,.auth-method-divider::after{content:"";height:1px;flex:1;background:#e3e1e8}
+@keyframes auth-google-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.auth-google-button{transition:none}.auth-google-spinner{animation:none}}
 .auth-resend{min-height:44px;gap:8px;white-space:normal;height:auto;padding-block:12px}

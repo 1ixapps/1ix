@@ -7,7 +7,4 @@ export function planAction(user, plan) {
   return { to: "/dashboard/plan?plan=" + encodeURIComponent(plan.id), label: "جزئیات پلن " + plan.name };
 }
 
-export function safeAuthReturn(value, fallback = "/dashboard") {
-  return typeof value === "string" && value.startsWith("/dashboard") &&
-    /^\/dashboard(?:\/|\?|$)/.test(value) && !/[\\\r\n]/.test(value) ? value : fallback;
-}
+export { safeAuthReturn } from "../../shared/auth.mjs";

@@ -19,7 +19,7 @@ let startupError;
 server.on("error", error => { startupError = error; });
 server.stdout.resume(); server.stderr.resume();
 let checks = 0;
-const assets = new Set(["/favicon.ico", "/favicon.svg", "/apple-touch-icon.png", "/fonts/estedad.css", "/fonts/estedad-arabic-variable.woff2"]);
+const assets = new Set(["/google-g.svg", "/favicon.ico", "/favicon.svg", "/apple-touch-icon.png", "/fonts/estedad.css", "/fonts/estedad-arabic-variable.woff2"]);
 async function get(path, options) {
   const response = await fetch(new URL(path, origin), { ...options, signal: AbortSignal.timeout(10000) });
   return { response, text: await response.text() };
@@ -55,6 +55,11 @@ try {
     assert.ok(!response.headers.get("content-type")?.includes("text/html"), "Asset resolved to HTML: " + asset);
     checks++;
   }
+  const oauth = await get("/api/auth/oauth/callback?code=untrusted-code", { redirect: "manual" });
+  assert.equal(oauth.response.status, 303); assert.equal(oauth.response.headers.get("location"), "/login?oauth_error=expired"); checks++;
+  assert.equal((await get("/api/auth/oauth/callback?code=untrusted-code", { method: "HEAD", redirect: "manual" })).response.status, 204); checks++;
+  assert.equal((await get("/api/auth/oauth/google")).response.status, 405); checks++;
+  assert.equal((await get("/api/auth/oauth/google", { method: "POST", headers: { Origin: "https://attacker.invalid", "Content-Type": "application/json" }, body: "{}" })).response.status, 403); checks++;
   const session = await get("/api/auth/session");
   assert.equal(session.response.status, 200);
   assert.deepEqual(JSON.parse(session.text), { user: null });

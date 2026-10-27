@@ -61,6 +61,11 @@ export function createSupabaseAuth(fetcher = fetch) {
   return {
     config: authConfig,
     settings: () => request("/settings", { method: "GET" }),
+    googleUrl: (redirect, challenge) => {
+      const target = new URL(authConfig().url + "/auth/v1/authorize");
+      target.search = new URLSearchParams({ provider: "google", redirect_to: redirect, code_challenge: challenge, code_challenge_method: "s256", scopes: "openid email profile", prompt: "select_account" }).toString();
+      return target.href;
+    },
     signup: (input, redirect, challenge) => request("/signup?redirect_to=" + encodeURIComponent(redirect), { data: { email: input.email, password: input.password, data: { name: input.name }, code_challenge: challenge, code_challenge_method: "s256" } }),
     login: input => request("/token?grant_type=password", { data: { email: input.email, password: input.password } }),
     refresh: refresh_token => request("/token?grant_type=refresh_token", { data: { refresh_token } }),

@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
 import { AuthShell, AuthSidePanel } from "@/pages/Login";
 import EmailConfirmation from "@/components/EmailConfirmation";
+import GoogleSignIn from "@/components/GoogleSignIn";
 import { pickError } from "@/lib/api";
 
 function fieldError(key, value) {
@@ -40,6 +41,7 @@ export default function Signup() {
     const [form, setForm] = useState({ email: "", password: "" });
     const [showPass, setShowPass] = useState(false);
     const [submitting, setSubmitting] = useState(false);
+    const [googleBusy, setGoogleBusy] = useState(false);
 
     const [confirmationEmail, setConfirmationEmail] = useState("");
     const [error, setError] = useState("");
@@ -50,7 +52,7 @@ export default function Signup() {
 
     const submit = async (event) => {
         event.preventDefault();
-        if (submitting) return;
+        if (submitting || googleBusy) return;
         const errors = Object.fromEntries(Object.entries(form).map(([key, value]) => [key, fieldError(key, value)]).filter(([, message]) => message));
         setFieldErrors(errors); setError("");
         if (Object.keys(errors).length) { document.getElementById(Object.keys(errors)[0])?.focus(); return; }
@@ -101,6 +103,7 @@ export default function Signup() {
                     </p>
                 </div>
 
+                <GoogleSignIn next="/dashboard/page" disabled={submitting || googleBusy} onBusyChange={setGoogleBusy} />
                 <form onSubmit={submit} className="auth-form" data-testid="signup-form" noValidate>
                     <span className="auth-step">مرحلهٔ ۱ از ۲ · اطلاعات حساب</span>
                     {error && <p className="auth-error" role="alert">{error}</p>}
@@ -170,7 +173,7 @@ export default function Signup() {
 
                     <Button
                         type="submit"
-                        disabled={submitting}
+                        disabled={submitting || googleBusy}
                         className="auth-submit"
                         data-testid="signup-submit-btn"
                     >

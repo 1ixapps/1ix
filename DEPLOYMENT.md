@@ -7,6 +7,7 @@
 - [SQL یک‌جای نصب](supabase/SETUP.sql)
 - [کوئری‌های بررسی فقط‌خواندنی](supabase/VERIFY.sql)
 - [Auth و ایمیل](SUPABASE_AUTH.md)
+- [فعال‌سازی ورود گوگل](docs/GOOGLE_AUTH.md)
 - [سئو و چک‌لیست انتشار](docs/SEO.md)
 - [نتیجهٔ ممیزی و محدودیت‌های باقی‌مانده](docs/RELEASE_AUDIT.md)
 
@@ -50,6 +51,7 @@ schema app_private را به Exposed Schemas اضافه نکنید.
 - Custom SMTP برای ارسال ایمیل به کاربران واقعی تنظیم شود.
 - Site URL برابر https://1ix.ir باشد.
 - Redirect URLs: آدرس https://1ix.ir/auth/confirm و https://1ix.ir/auth/confirm?flow=recovery مجاز باشند.
+- برای Google، Provider را با Client ID/Secret در Supabase فعال و https://1ix.ir/api/auth/oauth/callback را نیز مجاز کنید؛ جزئیات در راهنمای Google Auth.
 - قالب‌های تأیید و بازیابی از {{ .ConfirmationURL }} استفاده کنند.
 - برای تست محلی، نسخهٔ localhost همین callbackها را اضافه کنید.
 - CAPTCHA را بدون پیاده‌سازی فرم آن اجباری نکنید.

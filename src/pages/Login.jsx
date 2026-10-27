@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Brand from "@/components/Brand";
 import BuilderCharacter from "@/components/BuilderCharacter";
+import GoogleSignIn from "@/components/GoogleSignIn";
+import { googleAuthErrors } from "@/lib/googleAuth";
 import { toFarsiDigits } from "@/lib/jalali";
 import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
@@ -50,9 +52,12 @@ export default function Login() {
   const [showPass, setShowPass] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [googleBusy, setGoogleBusy] = useState(false);
+  const errorKey = new URLSearchParams(location.search).get("oauth_error");
+  const oauthError = Object.prototype.hasOwnProperty.call(googleAuthErrors, errorKey) ? googleAuthErrors[errorKey] : "";
   const submit = async (event) => {
     event.preventDefault();
-    if (submitting) return;
+    if (submitting || googleBusy) return;
     if (!email || !password) { toast.error("ایمیل و رمز عبور را وارد کن."); return; }
     setSubmitting(true); setError("");
     try {
@@ -71,6 +76,8 @@ export default function Login() {
     ]} />}>
       <div className="v3-auth-card auth-card">
         <div className="auth-card-heading"><h1>ورود به حساب</h1><p>حساب نداری؟ <Link to="/signup" data-testid="login-to-signup">ساخت حساب</Link></p></div>
+        {oauthError && <p role="alert" className="auth-error">{oauthError}</p>}
+        <GoogleSignIn next={safeAuthReturn(location.state?.from, "")} disabled={submitting} onBusyChange={setGoogleBusy} />
         <form onSubmit={submit} className="auth-form" data-testid="login-form">
           {error && <p role="alert" className="auth-error">{error} <Link to="/signup">تأیید ایمیل</Link></p>}
           <div><Label htmlFor="email">ایمیل</Label><div className="auth-field"><Mail className="auth-field-icon" size={17} /><Input id="email" type="email" dir="ltr" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" className="auth-input" data-testid="login-email-input" autoComplete="email" required /></div></div>
@@ -79,7 +86,7 @@ export default function Login() {
               <button type="button" className="auth-password-toggle" onClick={() => setShowPass(!showPass)} aria-label={showPass ? "پنهان کردن رمز" : "نمایش رمز"} aria-pressed={showPass}>{showPass ? <EyeOff size={17} /> : <Eye size={17} />}</button>
             </div>
           </div>
-          <Button type="submit" disabled={submitting} className="auth-submit" data-testid="login-submit-btn"><LogIn size={16} />{submitting ? "در حال ورود…" : "ورود به حساب"}{!submitting && <ArrowLeft size={16} />}</Button>
+          <Button type="submit" disabled={submitting || googleBusy} className="auth-submit" data-testid="login-submit-btn"><LogIn size={16} />{submitting ? "در حال ورود…" : "ورود به حساب"}{!submitting && <ArrowLeft size={16} />}</Button>
         </form>
         <Button asChild variant="ghost" className="auth-back"><Link to="/">بازگشت به صفحه‌ی اصلی</Link></Button>
       </div>

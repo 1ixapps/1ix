@@ -1,6 +1,7 @@
 import { randomBytes, createHash, randomInt } from "node:crypto";
 import { body, fail, json } from "./http.mjs";
 import { normalizeContactPhone, schemas } from "./validation.mjs";
+import { googleOAuthRoutes } from "./oauth.mjs";
 import { accessToken, currentUser, confirmedIdentity, displayNameFromEmail, publicUser, sessionResponse, logoutResponse, cookies, setCookie } from "./auth.mjs";
 
 function redirectUrl(request, flow) {
@@ -20,6 +21,7 @@ function withChallenge(response, proof, flow) {
   return response;
 }
 export function authRoutes(add, { auth, sendOtp, database }) {
+  googleOAuthRoutes(add, { auth, database });
   // Cookie-backed bootstrap is public for guests, but never trusts an unverified session.
   // It performs no database/provider request at all when there are no session cookies.
   add("GET", "/auth/session", async ({ request }) => {

@@ -43,7 +43,7 @@ export async function syncAuthUser(db, identity) {
     }
     const now = new Date();
     const profile = { id: identity.id, supabase_auth_id: identity.id, email, email_verified: true,
-      name: String(identity.user_metadata?.name || displayNameFromEmail(email)).trim().slice(0, 120),
+      name: String(identity.user_metadata?.name || identity.user_metadata?.full_name || displayNameFromEmail(email)).trim().slice(0, 120),
       role: "user", plan: "free", trial_ends_at: new Date(now.getTime() + 7 * 86400000).toISOString(),
       phone: null, phone_verified: false, created_at: now.toISOString() };
     await tx.insert("users", profile);
@@ -79,7 +79,7 @@ export function setCookie(response, name, value, maxAge) {
 }
 export function logoutResponse() {
   const response = json({ ok: true });
-  for (const name of ["sb_access_token","sb_refresh_token","sb_pkce","sb_flow","access_token","refresh_token"]) setCookie(response, name, "", 0);
+  for (const name of ["sb_access_token","sb_refresh_token","sb_pkce","sb_flow","sb_google_pkce","sb_google_next","access_token","refresh_token"]) setCookie(response, name, "", 0);
   return response;
 }
 export async function sessionResponse(db, auth, session, { includeToken = true } = {}) {

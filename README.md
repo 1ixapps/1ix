@@ -8,6 +8,7 @@
 - [کوئری آمادهٔ نصب در SQL Editor](supabase/SETUP.sql)
 - [کوئری‌های بررسی دیتابیس](supabase/VERIFY.sql)
 - [تنظیم ورود و تأیید ایمیل](SUPABASE_AUTH.md)
+- [ورود با گوگل](docs/GOOGLE_AUTH.md)
 - [سئو و Search Console](docs/SEO.md)
 - [نتیجهٔ بررسی و محدودیت‌های انتشار](docs/RELEASE_AUDIT.md)
 
